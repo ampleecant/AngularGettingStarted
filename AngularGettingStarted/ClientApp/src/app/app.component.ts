@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+  selector: 'pm-root',
+  template: `
+            <div>
+              <h1> {{ pageTitle }} </h1>
+             <div>My first component</div>
+            </div>
+           `
 })
+
 export class AppComponent {
-  title = 'app';
+  pageTitle = 'Product Management';
 }
