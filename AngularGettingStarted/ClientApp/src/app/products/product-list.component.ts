@@ -7,7 +7,13 @@ import { Component } from '@angular/core';
 
 //any is dynamic
 export class ProductListComponent {
+  imageMargin: number = 2;
+  imageWidth: number = 50;
+  listFilter: string = "cart";
   pageTitle: string = 'Items Product List';
+  showImage: boolean = false;
+
+  //products normally call API
   products: any[] = [
     {
       "productId": 1,
@@ -30,4 +36,9 @@ export class ProductListComponent {
       "imageUrl": "assets/images/garden_cart.png"
     }
   ];
+
+  //Toggle true false
+  toggleImage(): void {
+    this.showImage = !this.showImage;
+  }
 }
