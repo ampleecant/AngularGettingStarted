@@ -12,7 +12,6 @@ export class ProductListComponent implements OnInit {
   imageMargin: number = 2;
   imageWidth: number = 50;
 
-
   _listFilter: string;
   get listFilter(): string {
     return this._listFilter;
@@ -56,6 +55,10 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(`ProductListComponent initialised`);
+  }
+
+  onRatingClicked(message: string): void {
+    this.pageTitle = `Product List: ${message}`;
   }
 
   performFilter(filterBy: string): IProduct[] {

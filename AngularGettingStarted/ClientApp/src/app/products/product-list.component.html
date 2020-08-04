@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    {{ pageTitle }}
+      {{ pageTitle }}
   </div>
 
   <div class="card-body">
@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-md-6">
         <h4>Filtered by:
-        {{ listFilter }}
+            {{ listFilter }}
         </h4>
       </div>
     </div>
@@ -28,23 +28,23 @@
           <tr>
             <th>
               <button class="btn btn-primary" (click)="toggleImage()">
-                {{ showImage ? "Hide" : "Show" }} Image
+                  {{ showImage ? "Hide" : "Show" }} Image
               </button>
             </th>
             <th>
-              Product
+                Product
             </th>
             <th>
-              Code
+                Code
             </th>
             <th>
-              Available
+                Available
             </th>
             <th>
-              Price
+                Price
             </th>
             <th>
-              5 Star Rating
+                5 Star Rating
             </th>
           </tr>
         </thead>
@@ -70,7 +70,8 @@
                 {{ product.price | currency: 'GBP' : 'symbol' : '1.2-2' | lowercase }}
             </td>
             <td>
-                {{ product.starRating }}
+              <!--property binding-->
+                <pm-star [rating]="product.starRating" (ratingClicked)="onRatingClicked($event)"></pm-star>
             </td>
           </tr>
         </tbody>

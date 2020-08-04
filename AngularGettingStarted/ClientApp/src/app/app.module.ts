@@ -1,16 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { CounterComponent } from './counter/counter.component';
+import { ConvertToSpacesPipe } from './shared/convert-to-spaces';
+import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ProductListComponent } from './products/product-list.component';
-import { ConvertToSpacesPipe } from './shared/convert-to-spaces';
+import { StarComponent } from './shared/star.component';
 
 //First component loaded, new components need to be added here.
 @NgModule({
@@ -21,7 +22,8 @@ import { ConvertToSpacesPipe } from './shared/convert-to-spaces';
     FetchDataComponent,
     HomeComponent,
     NavMenuComponent,
-    ProductListComponent
+    ProductListComponent,
+    StarComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
