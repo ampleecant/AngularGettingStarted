@@ -5,10 +5,13 @@ import { Component } from '@angular/core';
   template: `
             <div>
               <h1> {{ pageTitle }} </h1>
-             <div>My first component</div>
+              <pm-products></pm-products>
             </div>
            `
 })
+
+  //page title property, one way binding { { } } - template expression
+  //we do state management through the class
 
 export class AppComponent {
   pageTitle = 'Product Management';

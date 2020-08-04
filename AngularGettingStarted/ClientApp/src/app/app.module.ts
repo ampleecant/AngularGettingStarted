@@ -9,14 +9,17 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { ProductListComponent } from './products/product-list.component';
 
+//First component loaded, new components need to be added here.
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
-    HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    HomeComponent,
+    NavMenuComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
