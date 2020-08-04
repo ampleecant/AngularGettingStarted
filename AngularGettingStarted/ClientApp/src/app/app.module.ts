@@ -10,11 +10,13 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ProductListComponent } from './products/product-list.component';
+import { ConvertToSpacesPipe } from './shared/convert-to-spaces';
 
 //First component loaded, new components need to be added here.
 @NgModule({
   declarations: [
     AppComponent,
+    ConvertToSpacesPipe,
     CounterComponent,
     FetchDataComponent,
     HomeComponent,

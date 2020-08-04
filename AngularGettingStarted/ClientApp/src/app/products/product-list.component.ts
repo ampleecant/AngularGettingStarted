@@ -1,20 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IProduct } from './iproduct';
 
 @Component({
   selector: 'pm-products',
+  styleUrls: ['./product-list.component.css'],
   templateUrl: './product-list.component.html'
 })
 
-//any is dynamic
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
+  filteredProducts: IProduct[];
   imageMargin: number = 2;
   imageWidth: number = 50;
-  listFilter: string = "cart";
+
+
+  _listFilter: string;
+  get listFilter(): string {
+    return this._listFilter;
+  }
+  set listFilter(value: string) {
+    this._listFilter = value;
+    this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
+  }
+
   pageTitle: string = 'Items Product List';
   showImage: boolean = false;
 
   //products normally call API
-  products: any[] = [
+  products: IProduct[] = [
     {
       "productId": 1,
       "productName": "Leaf Rake",
@@ -36,6 +48,24 @@ export class ProductListComponent {
       "imageUrl": "assets/images/garden_cart.png"
     }
   ];
+
+  constructor() {
+    this.filteredProducts = this.products;
+    this.listFilter = "cart";
+  }
+
+  ngOnInit(): void {
+    console.log(`ProductListComponent initialised`);
+  }
+
+  performFilter(filterBy: string): IProduct[] {
+    filterBy = filterBy.toLocaleLowerCase();
+
+    //ES2015 for each product
+    //indexof found add to filtered list
+    return this.products.filter((product: IProduct) =>
+      product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  }
 
   //Toggle true false
   toggleImage(): void {

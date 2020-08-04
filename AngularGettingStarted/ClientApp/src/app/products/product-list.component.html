@@ -50,27 +50,27 @@
         </thead>
         <tbody>
           <!--of for each, in for index-->
-          <tr *ngFor="let product of products">
+          <tr *ngFor="let product of filteredProducts">
             <td>
               <!--Properties set via Angular-->
-              <img *ngIf="showImage"
-                   [src]="product.imageUrl" [title]="product.productName" [style.margin.px] ="imageMargin" [style.width.px] ="imageWidth"
+                <img *ngIf="showImage"
+                [src]="product.imageUrl" [title]="product.productName" [style.margin.px] ="imageMargin" [style.width.px] ="imageWidth"
               />
             </td>
             <td>
-              {{ product.productName | uppercase }}
+                  {{ product.productName | uppercase }}
             </td>
             <td>
-              {{ product.productCode | lowercase }}
+                  {{ product.productCode | lowercase | convertToSpaces: '-' }}
             </td>
             <td>
-              {{ product.releaseDate }}
+                  {{ product.releaseDate }}
             </td>
             <td>
-              {{ product.price | currency: 'GBP' : 'symbol' : '1.2-2' | lowercase }}
+                {{ product.price | currency: 'GBP' : 'symbol' : '1.2-2' | lowercase }}
             </td>
             <td>
-              {{ product.starRating }}
+                {{ product.starRating }}
             </td>
           </tr>
         </tbody>

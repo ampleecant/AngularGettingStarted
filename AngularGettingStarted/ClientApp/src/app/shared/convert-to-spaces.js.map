@@ -1,0 +1,1 @@
+{"version":3,"file":"convert-to-spaces.js","sourceRoot":"","sources":["convert-to-spaces.ts"],"names":[],"mappings":";;;;;;;;;AAAA,sCAAoD;AAMpD;IAAA;IAIA,CAAC;IAHC,uCAAS,GAAT,UAAU,KAAa,EAAE,SAAiB;QACtC,OAAO,KAAK,CAAC,OAAO,CAAC,SAAS,EAAE,GAAG,CAAC,CAAC;IACvC,CAAC;IAHQ,mBAAmB;QAJ/B,WAAI,CAAC;YACJ,IAAI,EAAE,iBAAiB;SACxB,CAAC;OAEW,mBAAmB,CAI/B;IAAD,0BAAC;CAAA,AAJD,IAIC;AAJY,kDAAmB"}
