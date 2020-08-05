@@ -12,6 +12,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './products/product-list.component';
 import { StarComponent } from './shared/star.component';
+import { WelcomeComponent } from './home/welcome.component';
 
 //First component loaded, new components need to be added here.
 @NgModule({
@@ -23,7 +24,8 @@ import { StarComponent } from './shared/star.component';
     HomeComponent,
     NavMenuComponent,
     ProductListComponent,
-    StarComponent
+    StarComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,6 +35,11 @@ import { StarComponent } from './shared/star.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: "products", component: ProductListComponent },
+      { path: "products/:id", component: ProductListComponent },
+      { path: "welcome", component: WelcomeComponent },
+      { path: "", redirectTo: "welcome", pathMatch: "full" },
+      { path: "**", redirectTo: 'welcome', pathMatch: "full" }
     ])
   ],
   providers: [],
