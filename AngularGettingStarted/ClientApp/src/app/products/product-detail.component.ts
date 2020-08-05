@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 
-
-import { ProductService } from './product.service';
-import { IProduct } from './iproduct';
+import { ProductService } from "./product.service";
+import { IProduct } from "./iproduct";
 
 @Component({
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  templateUrl: "./product-detail.component.html",
+  styleUrls: ["./product-detail.component.css"]
 })
 export class ProductDetailComponent implements OnInit {
-  pageTitle = 'Product Detail';
-  errorMessage = '';
+  pageTitle = "Product Detail";
+  errorMessage = "";
   product: IProduct | undefined;
 
   constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService) {
@@ -45,6 +44,6 @@ export class ProductDetailComponent implements OnInit {
   }
 
   onBack(): void {
-    this.router.navigate(['/products']);
+    this.router.navigate(["/products"]);
   }
 }

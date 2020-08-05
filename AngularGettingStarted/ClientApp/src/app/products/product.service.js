@@ -8,10 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductService = void 0;
 var core_1 = require("@angular/core");
-//injection anywhere, Singleton
+var rxjs_1 = require("rxjs");
+//Injection anywhere, Singleton
 var ProductService = /** @class */ (function () {
-    function ProductService() {
+    function ProductService(_httpClient) {
+        this._httpClient = _httpClient;
+        this._productUrl = "api/products/products.json";
     }
+    //getProducts(): Observable<IProduct[]> {
+    //  return this._httpClient.get<IProduct[]>(this._productUrl)
+    //    .pipe(
+    //      tap(data => console.log('All: ' + JSON.stringify(data))),
+    //      catchError(this.handleError)
+    //    );
+    //}
     ProductService.prototype.getSeedData = function () {
         return [
             {
@@ -66,10 +76,20 @@ var ProductService = /** @class */ (function () {
             }
         ];
     };
+    //Handle error should go in own service.
+    ProductService.prototype.handleError = function (errorResponse) {
+        var errorMessage = "";
+        if (errorResponse.error instanceof ErrorEvent) {
+            errorMessage = "An error occurred: " + errorResponse.error.message;
+        }
+        else {
+            errorMessage = "Server returned code: " + errorResponse.status + ", error message is: " + errorResponse.message;
+        }
+        console.error(errorMessage);
+        return rxjs_1.throwError(errorMessage);
+    };
     ProductService = __decorate([
-        core_1.Injectable({
-            providedIn: "root"
-        })
+        core_1.Injectable({ providedIn: "root" })
     ], ProductService);
     return ProductService;
 }());

@@ -15,8 +15,8 @@ var ProductDetailGuard = /** @class */ (function () {
     ProductDetailGuard.prototype.canActivate = function (next, state) {
         var id = +next.url[1].path;
         if (isNaN(id) || id < 1) {
-            alert('Invalid product Id');
-            this.router.navigate(['/products']);
+            alert("Invalid product Id");
+            this.router.navigate(["/products"]);
             return false;
         }
         return true;
