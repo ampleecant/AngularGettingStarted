@@ -12,7 +12,7 @@ var core_1 = require("@angular/core");
 var ProductService = /** @class */ (function () {
     function ProductService() {
     }
-    ProductService.prototype.getproducts = function () {
+    ProductService.prototype.getSeedData = function () {
         return [
             {
                 "productId": 1,

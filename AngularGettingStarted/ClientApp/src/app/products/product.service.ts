@@ -1,12 +1,25 @@
+import { catchError, tap } from "rxjs/operators";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { IProduct } from "./iproduct";
+import { throwError, Observable } from "rxjs";
 
-//injection anywhere, Singleton
-@Injectable({
-  providedIn: "root"
-})
+//Injection anywhere, Singleton
+@Injectable({ providedIn: "root" })
 export class ProductService {
-  getproducts(): IProduct[] {
+  private _productUrl: string = "api/products/products.json";
+
+  constructor(private _httpClient: HttpClient) { }
+
+  getProductsAsync(): Observable<IProduct[]> {
+    return this._httpClient.get<IProduct[]>(this._productUrl)
+      .pipe(
+        tap(data => console.log(`All:  + ${JSON.stringify(data)}`)),
+        catchError(this.handleError)
+      );
+  }
+
+  getSeedData(): IProduct[] {
     return [
         {
           "productId": 1,
@@ -59,5 +72,21 @@ export class ProductService {
           "imageUrl": "assets/images/xbox-controller.png"
         }
       ]
+  }
+
+
+  //Handle error should go in own service.
+  private handleError(errorResponse: HttpErrorResponse) {
+    let errorMessage = "";
+
+    if (errorResponse.error instanceof ErrorEvent) {
+      errorMessage = `An error occurred: ${errorResponse.error.message}`;
+    } else {
+      errorMessage = `Server returned code: ${errorResponse.status}, error message is: ${errorResponse.message}`;
+    }
+
+    console.error(errorMessage);
+
+    return throwError(errorMessage);
   }
 }
