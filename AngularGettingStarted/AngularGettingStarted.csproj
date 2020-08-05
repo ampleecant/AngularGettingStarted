@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\products\iproduct.ts" />
+    <None Remove="ClientApp\src\app\products\product-detail.guard.ts" />
     <None Remove="ClientApp\src\app\products\product.service.ts" />
     <None Remove="ClientApp\src\app\shared\convert-to-spaces.ts" />
     <None Remove="ClientApp\src\app\shared\star.component.ts" />
@@ -33,6 +34,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\products\iproduct.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\products\product-detail.guard.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\products\product.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\convert-to-spaces.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\star.component.ts" />

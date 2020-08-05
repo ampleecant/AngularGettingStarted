@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './products/product-list.component';
 import { StarComponent } from './shared/star.component';
 import { WelcomeComponent } from './home/welcome.component';
+import { ProductDetailComponent } from './products/product-detail.component';
+import { ProductDetailGuard } from './products/product-detail.guard';
 
 //First component loaded, new components need to be added here.
 @NgModule({
@@ -23,6 +25,7 @@ import { WelcomeComponent } from './home/welcome.component';
     FetchDataComponent,
     HomeComponent,
     NavMenuComponent,
+    ProductDetailComponent,
     ProductListComponent,
     StarComponent,
     WelcomeComponent
@@ -36,7 +39,7 @@ import { WelcomeComponent } from './home/welcome.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: "products", component: ProductListComponent },
-      { path: "products/:id", component: ProductListComponent },
+      { path: "products/:id", component: ProductDetailComponent, canActivate: [ProductDetailGuard] },
       { path: "welcome", component: WelcomeComponent },
       { path: "", redirectTo: "welcome", pathMatch: "full" },
       { path: "**", redirectTo: 'welcome', pathMatch: "full" }
